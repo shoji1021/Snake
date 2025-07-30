@@ -8,12 +8,14 @@ const rows = canvas.height / gridSize;
 let snake, food;
 let started = false;
 let gameLoop;
+let score = 0; // 食べた餌の数を記録
 
 document.getElementById('startBtn').onclick = () => startGame();
 document.getElementById('continueBtn').onclick = () => backToStart();
 
 function startGame() {
   started = true;
+  score = 0; // スコア初期化
   snake = new Snake();
   food = createFood();
   gameLoop = setInterval(draw, 100);
@@ -58,8 +60,15 @@ function draw() {
   ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize, gridSize);
 
   if (snake.eat(food)) {
+    score++; // スコア加算
     food = createFood();
   }
+
+  // スコアを左上にリアルタイム表示
+  ctx.fillStyle = 'white';
+  ctx.font = '16px monospace';
+  ctx.textAlign = 'left';
+  ctx.fillText(`Score: ${score}`, 10, 20);
 
   if (snake.dead()) {
     clearInterval(gameLoop);
@@ -67,6 +76,10 @@ function draw() {
     ctx.font = '40px monospace';
     ctx.textAlign = 'center';
     ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2);
+
+    ctx.font = '20px monospace';
+    ctx.fillText(`SCORE: ${score}`, canvas.width / 2, canvas.height / 2 + 40);
+
     document.getElementById('continueBtn').style.display = 'inline-block';
   }
 }
