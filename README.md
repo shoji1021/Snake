@@ -32,7 +32,7 @@
 ## 実行方法
 1.下記のURLからアクセスしてください
 
-https://shoji1021.github.io/Snake/
+https://shoji1021.github.io/Snake-Game/
 
 2. このリポジトリをクローンまたはダウンロードしてから実行してください
 
