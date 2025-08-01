@@ -37,5 +37,5 @@ https://shoji1021.github.io/Snake/
 2. このリポジトリをクローンまたはダウンロードしてから実行してください
 
    ```bash
-   git clone https://github.com/shoji1021/Snake.git
+   git clone https://github.com/shoji1021/Snake-Game.git
    cd Snake
